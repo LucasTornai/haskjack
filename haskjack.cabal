@@ -1,0 +1,63 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 14a9169f8ee40c23ee37f465e50bd4336a9c31673d7682d31df60d155f00c575
+
+name:           haskjack
+version:        0.1.0.0
+description:    Please see the README
+author:         Lucas Tornai
+maintainer:     lucas@tornai.dev
+copyright:      Lucas Tornai
+license:        WTFPL
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      Haskjack
+  other-modules:
+      Paths_haskjack
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , random
+    , random-shuffle
+  default-language: Haskell2010
+
+executable haskjack-exe
+  main-is: Haskjack.hs
+  other-modules:
+      Paths_haskjack
+  hs-source-dirs:
+      src
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is Haskjack
+  build-depends:
+      base >=4.7 && <5
+    , haskjack
+    , random
+    , random-shuffle
+  default-language: Haskell2010
+
+test-suite haskjack-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskjack
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is Test
+  build-depends:
+      base >=4.7 && <5
+    , haskjack
+    , random
+    , random-shuffle
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
